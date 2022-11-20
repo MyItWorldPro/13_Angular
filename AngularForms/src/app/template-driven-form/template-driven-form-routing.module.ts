@@ -1,9 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TemplateDrivenDeepdiveComponent } from './template-driven-deepdive/template-driven-deepdive.component';
+import { TemplateDrivenIntroComponent } from './template-driven-intro/template-driven-intro.component';
 
-import { TemplateDrivenFormComponent } from './template-driven-form.component';
-
-const routes: Routes = [{ path: '', component: TemplateDrivenFormComponent }];
+const routes: Routes = [{
+  path: '', component: TemplateDrivenIntroComponent
+},
+{
+  path: 'templateDrivenFormIntro', component: TemplateDrivenIntroComponent
+},
+{
+  path: 'templateDrivenFormDeepdive', component: TemplateDrivenDeepdiveComponent
+}
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

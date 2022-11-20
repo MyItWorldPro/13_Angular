@@ -1,4 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Styles for the demo Login Forms starts */
+.backToHome {
+    margin: 10px 10px 10px 20px;
+    font-size: 35px;
+}
+
+.backToHome:hover {
+    cursor: pointer;
+    color: #3f51b5;
+}
+
+.loginPageCard {
+    width: 20%;
+    margin-left: 38%;
+    margin-top: 50px;
+}
+
+.login-form {
+    width: 100%;
+}
+
+.login-form mat-form-field {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.login-form button {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+/* Styles for the demo Login Forms ends */

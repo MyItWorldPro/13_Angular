@@ -1,9 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ReactiveFormDeepdiveComponent } from './reactive-form-deepdive/reactive-form-deepdive.component';
+import { ReactiveFormIntroComponent } from './reactive-form-intro/reactive-form-intro.component';
 
-import { ReactiveFormComponent } from './reactive-form.component';
-
-const routes: Routes = [{ path: '', component: ReactiveFormComponent }];
+const routes: Routes = [
+  { path: '', component: ReactiveFormIntroComponent },
+  {
+    path: 'reactiveFormIntro', component: ReactiveFormIntroComponent
+  },
+  {
+    path: 'reactiveFormDeepdive', component: ReactiveFormDeepdiveComponent
+  }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
