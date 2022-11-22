@@ -6,6 +6,7 @@ import { ReactiveFormComponent } from './reactive-form.component';
 import { ReactiveFormIntroComponent } from './reactive-form-intro/reactive-form-intro.component';
 import { ReactiveFormDeepdiveComponent } from './reactive-form-deepdive/reactive-form-deepdive.component';
 import { AngularMaterialModule } from '../angular-material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AngularMaterialModule } from '../angular-material.module';
   imports: [
     CommonModule,
     ReactiveFormRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class ReactiveFormModule { }

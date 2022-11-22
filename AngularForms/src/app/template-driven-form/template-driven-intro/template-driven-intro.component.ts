@@ -8,13 +8,18 @@ import { NgForm } from '@angular/forms';
 })
 export class TemplateDrivenIntroComponent implements OnInit {
 
+  formModel = {
+    email: '',
+    password: ''
+  };
+
   constructor() { }
 
   ngOnInit() {
   }
 
   login(loginForm: NgForm) {
-    console.log(loginForm);
+    console.log(loginForm.value);
   }
 
 }

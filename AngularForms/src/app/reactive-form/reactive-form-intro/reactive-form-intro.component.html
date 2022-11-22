@@ -11,14 +11,23 @@
     <mat-card-title>Login</mat-card-title>
     <mat-card-content>
   
-      <form class="login-form">
+      <form class="login-form" [formGroup]="formGroup">
   
         <mat-form-field>
-          <input matInput type="email" placeholder="Email" name="email">
+          <input matInput type="email" placeholder="Email" name="email" formControlName="email">
+          <mat-error *ngIf="getEmail.errors?.required">Email is mandatory.</mat-error>
+          <mat-error *ngIf="getEmail.errors?.minlength">The minimum length of Email must be
+            {{getEmail.errors?.minlength.requiredLength}}, but it is {{getEmail.errors?.minlength.actualLength}} characters.
+          </mat-error>
         </mat-form-field>
   
         <mat-form-field>
-          <input matInput type="password" placeholder="Password" name="password">
+          <input matInput type="password" placeholder="Password" name="password" formControlName="password">
+          <mat-error *ngIf="getPassword.errors?.required">Password is mandatory.</mat-error>
+          <mat-error *ngIf="getPassword.errors?.minlength">The minimum length of Password must be
+            {{getPassword.errors?.minlength.requiredLength}}, but it is {{getPassword.errors?.minlength.actualLength}}
+            characters.
+          </mat-error>
         </mat-form-field>
   
         <button mat-raised-button color="primary">Login</button>

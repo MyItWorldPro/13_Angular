@@ -14,11 +14,22 @@
     <form class="login-form" #loginForm="ngForm">
 
       <mat-form-field>
-        <input matInput type="email" placeholder="Email" name="email">
+        <input matInput type="email" placeholder="Email" name="email" [(ngModel)]="formModel.email" #email="ngModel"
+          required minlength="4" maxlength="10">
+        <mat-error *ngIf="email.errors?.required">Email is mandatory.</mat-error>
+        <mat-error *ngIf="email.errors?.minlength">The minimum length of Email must be
+          {{email.errors?.minlength.requiredLength}}, but it is {{email.errors?.minlength.actualLength}} characters.
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput type="password" placeholder="Password" name="password">
+        <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="formModel.password"
+          #password="ngModel" required minlength="4" maxlength="20">
+        <mat-error *ngIf="password.errors?.required">Password is mandatory.</mat-error>
+        <mat-error *ngIf="password.errors?.minlength">The minimum length of Password must be
+          {{password.errors?.minlength.requiredLength}}, but it is {{password.errors?.minlength.actualLength}}
+          characters.
+        </mat-error>
       </mat-form-field>
 
       <button mat-raised-button color="primary" (click)="login(loginForm)">Login</button>
