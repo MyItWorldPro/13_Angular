@@ -1,29 +1,50 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>Template Driven Form - Deep Dive</span>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  
-  <mat-icon aria-hidden="false" aria-label="home icon" class="backToHome" title="Back to Home"
-    [routerLink]="['/', 'home']">home</mat-icon>
-  
-  <mat-card class="loginPageCard">
-    <mat-card-title>Login</mat-card-title>
-    <mat-card-content>
-  
-      <form class="login-form">
-  
-        <mat-form-field>
-          <input matInput type="email" placeholder="Email" name="email">
-        </mat-form-field>
-  
-        <mat-form-field>
-          <input matInput type="password" placeholder="Password" name="password">
-        </mat-form-field>
-  
-        <button mat-raised-button color="primary">Login</button>
-  
-      </form>
-  
-    </mat-card-content>
-  </mat-card>
+  <mat-toolbar-row>
+    <span>Template Driven Form - Deep Dive</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-icon aria-hidden="false" aria-label="home icon" class="backToHome" title="Back to Home"
+  [routerLink]="['/', 'home']">home</mat-icon>
+
+<mat-card class="loginPageCard">
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+
+    <form class="login-form" #loginForm="ngForm" (ngSubmit)="login(loginForm, $event)">
+
+      <mat-form-field>
+        <input matInput type="email" placeholder="Email" name="email" [(ngModel)]="formModel.email" #email="ngModel"
+          required minlength="4" maxlength="20" email>
+
+        <mat-error *ngIf="email.errors | singleErrorOnlyPipe:['minlength','email'] as errors">
+          <mat-error *ngIf="errors?.required">Email is mandatory.</mat-error>
+          <mat-error *ngIf="errors?.minlength">The minimum length of Email must be
+            {{errors?.minlength.requiredLength}}, but it is {{errors?.minlength.actualLength}} characters.
+          </mat-error>
+          <mat-error *ngIf="errors?.email">Email is not a valid one.</mat-error>
+          <!-- <mat-error *ngIf="email.errors?.pattern">Only lower case letters are allowed.</mat-error> -->
+        </mat-error>
+        
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="formModel.password"
+          #password="ngModel" required minlength="4" maxlength="20" customPasswordStrength>
+        <mat-error *ngIf="password.errors?.required">Password is mandatory.</mat-error>
+        <mat-error *ngIf="password.errors?.minlength">The minimum length of Password must be
+          {{password.errors?.minlength.requiredLength}}, but it is {{password.errors?.minlength.actualLength}}
+          characters.
+        </mat-error>
+        <mat-error *ngIf="password.errors?.passwordStrength">Password is weak.</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Login</button>
+
+    </form>
+
+    <!-- <div>{{loginForm.value | json}}</div> -->
+    <!-- <div>{{password.errors | json}}</div> -->
+
+  </mat-card-content>
+</mat-card>

@@ -43,3 +43,32 @@ body {
 }
 
 /* Styles for the demo Login Forms ends */
+
+/* Override the default CSS state classes starts */
+
+// // 1: For Input field label text
+// .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+//     color: darkorchid;
+// }
+
+// // 2: For Input field label required marker : the asterisk CSS
+// .mat-form-field.mat-form-field-invalid .mat-form-field-label .mat-form-field-required-marker {
+//     color: darkorchid;
+// }
+
+// // 3: For the Input Text
+// input.ng-invalid.ng-touched {
+//     color: darkorchid;
+// }
+
+// // 4: The input field border at the botton
+// .mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+//     background-color: darkorchid;
+// }
+
+// // 5: mat-error text below the field
+// .mat-error {
+//     color: darkorchid;
+// }
+
+/* Override the default CSS state classes ends */

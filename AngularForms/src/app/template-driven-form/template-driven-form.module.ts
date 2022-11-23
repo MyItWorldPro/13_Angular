@@ -7,10 +7,17 @@ import { TemplateDrivenIntroComponent } from './template-driven-intro/template-d
 import { AngularMaterialModule } from '../angular-material.module';
 import { TemplateDrivenDeepdiveComponent } from './template-driven-deepdive/template-driven-deepdive.component';
 import { FormsModule } from '@angular/forms';
+import { CustomPasswordStrengthDirective } from '../custom-directives/passwordStrength.directive';
+import { SingleErrorOnly } from '../custom-pipes/singleErrorOnly.pipe';
 
 
 @NgModule({
-  declarations: [TemplateDrivenFormComponent, TemplateDrivenIntroComponent, TemplateDrivenDeepdiveComponent],
+  declarations: [TemplateDrivenFormComponent, 
+    TemplateDrivenIntroComponent, 
+    TemplateDrivenDeepdiveComponent,
+    CustomPasswordStrengthDirective,
+    SingleErrorOnly
+  ],
   imports: [
     CommonModule,
     TemplateDrivenFormRoutingModule,

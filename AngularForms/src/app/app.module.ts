@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './home/home.module';
 import { AngularMaterialModule } from './angular-material.module';
+import { CustomPasswordStrengthDirective } from './custom-directives/passwordStrength.directive';
 
 @NgModule({
   declarations: [
